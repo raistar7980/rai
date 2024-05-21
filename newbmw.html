@@ -1,0 +1,703 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bmw website</title>
+      
+        <link rel="stylesheet" href="for.css">
+        <script src="scriptt.js"></script>
+
+
+    </head>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+   width: auto;
+   height: auto;
+   background-image: url("788.webp");
+   
+
+}
+
+header {
+   
+
+    
+   
+    color: #33a898;
+    padding: 40px 0;
+    text-emphasis-color: grey;
+}
+
+
+nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 20px;
+}
+
+nav a {
+   color: #a90604;
+   text-decoration: none;
+   margin-right: 15px;
+}
+
+nav form {
+   display: flex;
+}
+
+nav form input {
+   margin-right: 10px;
+}
+
+.car-model {
+   display: inline-block;
+   width: 600px;
+   height: 300px;
+   margin: 20px;
+   padding: 20px;
+   border: 1px solid #75a2b7;
+}
+
+.car-model img {
+   width: 600px;
+   height: 400px;
+   background: #7dcbcb;
+}
+
+.car-model p {
+   margin: 50px 0;
+}
+
+.car-model button {
+   display: block;
+   width: 100%;
+   margin-top: 10px;
+   padding: 10px;
+   background: linear-gradient(to right, #999, #ccc);
+   border: none;
+   color: #fff;
+}
+
+.gallery {
+    background-color: #908787c2;
+    padding: 50px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 80%;
+}
+
+.terms{
+    
+    width: 1430px;
+    height: 300px;
+    margin: 50px;
+   padding: 30px;
+   background-color: #333;
+   color: #fff;
+   text-align: center;
+   padding: 20px 0;
+}
+
+
+.login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 10%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        border-radius: 10px;
+  
+    }
+
+</style>
+    <style>
+        /* Style for the pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            text-align: center;
+            background-color: #999;
+        }
+    
+        /* Style for the close button */
+        .close {
+            position: absolute;
+            top: 35px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        
+
+        #customerPhoto {
+            width: 100px;
+            height: 60px;
+            border-radius: 60%;
+            margin-bottom: 20px;
+            background: #31a1a281;
+     
+        }
+
+
+        form {
+            display: none; /* Initially hidden */
+            max-width: 200px;
+            margin: 1 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        
+        label {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        
+        #editProfileButton {
+            background-color: #218c24;; /* Blue background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+    
+        #editProfileButton:hover {
+            background-color: #2a922d;; /* Darker blue on hover */
+        }
+
+
+        .success-message {
+            display: none;
+            position: center;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 300px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+
+        }
+
+
+.video{
+      padding: 35px;
+      border: #33a898;
+      border-radius: 10px;
+
+
+}
+
+
+
+
+
+
+
+    </style>
+    </head>
+   
+   
+    
+    <!-- The pop-up -->
+    
+    <div id="carPopup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+
+      
+<br>
+
+
+        <img id="customerPhoto" src="C:\Users\Lenovo\Downloads\00.png" alt="Customer Photo">
+<label for="username"> Customer Name:</label>
+<input type="text" id="username" name="username" value="John Doe">
+<br/>
+
+<label for="username">Customer Address:</label>
+<input type="text" id="username" name="username" value="123 Main Street,Calefornia,US">
+<br/>
+
+<label for="Username">Customer Phone No:</label>
+<input type="text" id="username" name="username" value="+16512378945">
+<br/>
+
+<label for="username">Car Name:</label>
+<input type="text" id="username" name="username" value="BMW M5CS Competition">
+<br/>
+
+<label for="username">Car No:</label>
+<input type="text" id="username" name="username" value="US02145D">
+<br/>
+<label for="username">Customer Service:</label>
+<input type="text" id="username" name="username" value="1 Year">
+
+<br/>
+<label for="Password">Password:</label>
+<input type="password" id="password" name="Password" value="7980361254">
+
+<br/>
+<button id="editProfileButton"onclick="showSuccessMessage()">Save Changes</button>
+
+    <button onclick="toggleForm()">Edit Profile</button>
+
+</form>
+
+<div id="successMessage" class="success-message">
+    Changes saved successfully!
+</div>
+
+<script>
+    // Function to toggle the visibility of the form
+    function toggleForm() {
+        var form = document.getElementById("profileForm");
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+
+    // Function to show the success message
+    function showSuccessMessage() {
+        var successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "block";
+
+        // Hide the success message after 3 seconds
+        setTimeout(function() {
+            successMessage.style.display = "none";
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+</script>
+
+
+        
+    </form>
+    </div>
+
+    <script>
+        // Function to open the pop-up
+        function openPopup() {
+            document.getElementById("carPopup").style.display = "block";
+        }
+    
+        // Function to close the pop-up
+        function closePopup() {
+            document.getElementById("carPopup").style.display = "none";
+        }
+    </script>
+    
+
+
+
+<body>
+    <header>
+       <nav>
+        
+    <img src="C:\Users\Lenovo\Downloads\logo12.png" width="200px" height="175px" class="top-right" > 
+    <br/>
+           <u><a href="#">Home</a></u>
+          <u> <a href="https://www.bmw.in/en/fastlane/bmw-m5-competition-edition.html">My models</a></u>
+          <u> <a href="https://www.bmw.in/en/all-models.html">All models</a></u>
+          <u> <a href="https://www.bmwusedcars.in/">Used Cars</a></u>
+           <u><a href="https://www.bmw.in/en/topics/owners/original-bmw-accessories/bmw-accessories-overview.html">Accessories</a></u>
+       <u>    <a href="https://www.carexpert.com.au/buy?o&msclkid=87a7bb3c427513ca029fdd2afb0c2491&utm_source=bing&utm_medium=cpc&utm_campaign=CarExpert%20Brand%20%7C%20Buy&utm_term=dealership&utm_content=Ad%20group%201">Find a dealer</a></u>
+           <form>
+               <input type="text" placeholder="Search">
+               <button type="submit">Search</button>
+            </form> <br>
+
+          
+      <u><a href="https://www.bmwgroup.com/en.html">For More info</a> </u>
+              <u> <a href="https://discover.bmw.co.uk/">Financial Services</a></u>
+              <br>
+
+              <u> <a href="https://www.bmw.in/en/all-models/7-series/sedan/2022/bmw-7-series-sedan-highlights.html?bmw_leadsource=Google_Search_BMW_7er_Awareness&utm_source=Google_Search_BMW_7er_Awareness&utm_medium=Google_Search_BMW_7er_Awareness_campaign=BMW_7er_Awareness_April_24&gad_source=1&gclid=EAIaIQobChMInoqI04-KhgMVDKVmAh1KPgPGEAAYASAAEgIAM_D_BwE&gclsrc=aw.ds">Buy Car</a></u>
+
+
+
+<u>              <a href="file:///C:/Users/Lenovo/Documents/human.html" class="button">Register</a>
+</u>              
+
+
+            <button onclick="openPopup()">My Profile</button>
+
+        </u>
+       </nav>
+    </style>
+       <br/>
+       <br/>
+
+     
+   </header>
+   <main>
+
+
+       <div class="car-model">
+
+
+
+           <img src="C:\Users\Lenovo\Downloads\z4.png" alt="BMW Z4">
+           <h2>BMW Z4 Hybrid</h2>
+           <p>Experience the thrill of driving a hybrid car with the latest technology.</p>
+           <button>Configure now</button>
+       </div>
+       <div class="car-model">
+           <img src="C:\Users\Lenovo\Downloads\13.png" alt="Model 2">
+           <h2>BMW X7</h2>
+           <p>Discover a new dimension of driving pleasure with the X7
+            The BMW X7 makes for a well-rounded luxury 6/7-seater SUV packaging a spacious, rich and tech-loaded interior with a driving experience that’s sure to leave you smiling!.</p>
+           <button>Configure now</button>
+       </div>
+       <div class="car-model">
+           <img src="C:\Users\Lenovo\Downloads\25.png" alt="Model 3">
+           <h2>The BMW Series Coupé</h2>
+           <p>Get your own 22CD03 with our exclusive series.</p>
+           <button>Configure now</button>
+       </div>
+       <div class="car-model">
+           <img src="C:\Users\Lenovo\Downloads\30.png" alt="Model 4">
+           <h2>BMW M5 CleanEnergy</h2>
+           <p>Experience the future of driving with our clean energy models.</p>
+           <button>Configure now</button>
+       </div>
+       <div class="car-model">
+       <img src="C:\Users\Lenovo\Downloads\bmw1.webp" alt="BMW Z4">
+           <h2>BMW c class Hybrid</h2>
+           <p>Experience the thrill of driving a hybrid car with the latest technology.</p>
+           <button>Configure now</button>
+          </div>
+
+
+          <div class="car-model">
+            <img src="C:\Users\Lenovo\Downloads\29.png" alt="BMW Z4">
+                <h2>BMW i8 </h2>
+                <p>Experience the thrill of driving a hybrid car with the latest technology.</p>
+                <button>Configure now</button>
+               </div>
+               <div> 
+                <div class="car-model">
+                <img src="C:\Users\Lenovo\Downloads\red2.png" alt="BMW Z4">
+                    <h2>BMW s class </h2>
+                    <p>Experience the thrill of driving a hybrid car with the latest technology.</p>
+                    <button>Configure now</button>
+                   </div>
+                   <div class="car-model">
+                    <img src="C:\Users\Lenovo\Downloads\203.png" alt="BMW Z4">
+                        <h2>BMW Hybrid</h2>
+                        <p>Experience the thrill of driving a hybrid car with the latest technology.</p>
+                        <button>Configure now</button>
+                       </div>
+
+
+
+       <u>
+        <p>Explore our latest models and innovations➔</p>
+      </u>
+
+        <img src="C:\Users\Lenovo\Downloads\bmw2.0.jpg" width="300px" height="500px"style="margin-right: 0px;">
+        
+        <img src="C:\Users\Lenovo\Downloads\run.jpg" width="700px" height="500px"style="mergin-right :px;">
+
+        <img src="C:\Users\Lenovo\Downloads\dr.jpg" width="500px" height="400px"style="mergin-right: px;">
+        
+        <img src="C:\Users\Lenovo\Downloads\m2.avif" width="700px" height="500px"style="mergin-right: px;">
+        
+        <img src="C:\Users\Lenovo\Downloads\co.jpg" width="700px" height="500px"style="mergin-right: px;">
+        
+        <img src="C:\Users\Lenovo\Downloads\lady.jpeg" width="600px" height="500px"style="mergin-right: 0px;">
+
+        <img src="C:\Users\Lenovo\Downloads\m4.jpg" width="600px" height="500px"style="mergin-right: 0px;">
+
+          
+        <img src="C:\Users\Lenovo\Downloads\joy.jpg" width="800px" height="500px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\290.jpg" width="600px" height="500px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\78.jpg" width="658px" height="600px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\cust.webp" width="800px" height="600px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\sm.jpg" width="500px" height="400px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\56.jpg" width="500px" height="400px"style="mergin-right: 0px;">
+        <img src="C:\Users\Lenovo\Downloads\59.png" width="500px" height="400px"style="mergin-right: 0px;">
+        ......Corporations need business communication when dealing with their main stakeholders (e.g., consumers, inner members, investors, societies, government). To consumers, corporations need to sell their products and gain a higher level of trust and loyalty from consumers (Choi, 2013;Jaganathan, Mayr, & Nagaratnam, 2014;Kang, 2014;Kim & Benbasat, 2006;Kisicek, 2018). For example, they need to persuade inner members of the necessity of structural reform of the organization such as downsizing and relieve the dissatisfaction of members for smoother structural reform (Hossfeld, 2018). ...
+        ... Corporations can support pro-corporation governmental officials, social groups, <a href="https://www.researchgate.net/figure/BMW-advertisement-in-the-English-daily_fig2_267569312">view</a> opinion leaders to influence laws and policies for them. Choi (2013), Jaganathan et al. (2014), Kang (2014), Benbasat (2006, 2009) and Kisicek (2018) focus on consumers. They use printed and textual advertisements because it is easy to find logical relationships among the parts of advertisements. ...
+        ... When advertising their products, advertisers need to consider the differences among the diverse backgrounds of customers. Jaganathan et al. (2014) investigate the differences of emphasis to English and German customers even though corporations run the same automobile advertisements. The focus of Kim and Benbasat (2006) differs from that of others. ...
+        <br/>
+        
+        <u> ➡BMW Boosts Brand Equity with Local Marketing</u>
+        
+        When it comes to marketing, BMW employs a tactical and multi-channel approach to reinforce the brand's unique values and increase brand equity. In fact, BMW leverages a variety of print and digital activities to maximize marketing coverage, entice prospective consumers and keep current customers coming back for more. BMW's secret to local marketing starts with the right marketing mix:
+        
+        <u>➡TV and Radio Advertisements</u>
+        Long-range and mid-range television and radio advertising are one of BMW's go-to tactics to increase brand exposure. Special promotions like the BMW Road Home Sales Event encourage
+        <br/>
+        <u>➡How BMW Builds Brand Equity Through Local Marketing [Updated 2023-2024]</u>
+        The positive perception of a brand is priceless. Thanks to investments made in improving the customer experience, multi-location organizations — like 7-Eleven, McDonald's, Dunkin' Donuts, The UPS Store — have positioned themselves as industry leaders. Consumers prefer these brands over the other guys and perceive them to be credible and consistent.
+        
+        However, building and maintaining that clout can be quite the challenge. By running effective brand awareness campaigns, deploying a multi-channel marketing strategy and delivering superior customer service, companies can start to build up their brand equity <br>
+
+<br/>
+        
+            <video autoplay loop muted src="C:\Users\Lenovo\Downloads\new.mp4" type="video/mp4" height="800px"width="1500px">
+            
+          </video>
+
+
+          <u>
+            <p>➔Explore our latest models and innovations➔</p>
+          </u>
+      
+         
+                
+           
+            <img src="C:\Users\Lenovo\Downloads\13.png" alt="BMW Image 2" width="400px" height="300px" >
+            <img src="C:\Users\Lenovo\Downloads\31.png" alt="BMW Image 3"width="500px" height="300px">
+            <img src="C:\Users\Lenovo\Downloads\29.png" alt="BMW Image 3"width="500px" height="350px">
+
+            <img src="C:\Users\Lenovo\Downloads\25.png" alt="BMW Image 3"width="500px" height="300px">
+        <img src="C:\Users\Lenovo\Downloads\24.png" alt="BMW Image 3"width="500px" height="300px">
+            <img src="C:\Users\Lenovo\Downloads\m3.png" alt="BMW Image 3"width="500px" height="300px">
+            <img src="C:\Users\Lenovo\Downloads\z4.png" alt="BMW Image 3"width="500px" height="350px">
+            <img src="C:\Users\Lenovo\Downloads\203.png" alt="BMW Image 3"width="450px" height="300px">
+        <img src="C:\Users\Lenovo\Downloads\wh.png" alt="BMW Image 3"width="500px" height="300px">
+    <img src="C:\Users\Lenovo\Downloads\green.png" alt="BMW Image 3"width="500px" height="300px">
+    <img src="C:\Users\Lenovo\Downloads\red.png" alt="BMW Image 3"width="550px" height="300px">
+    <img src="C:\Users\Lenovo\Downloads\si.png" alt="BMW Image 3"width="400px" height="300px">
+        <img src="C:\Users\Lenovo\Downloads\red2.png" alt="BMW Image 3"width="400px" height="300px">
+        <img src="C:\Users\Lenovo\Downloads\12.png" alt="BMW Image 2"  width="550px" height="300px"  >
+        <img src="C:\Users\Lenovo\Downloads\103.png" alt="BMW Image 2"  width="550px" height="300px"  >
+
+           
+              <br>
+              <br>
+              <br>
+            
+            
+          <u> <a href="https://www.bmw.in/en/all-models.html"> Explore More</a></u>
+
+                                         
+        </div>
+    </div>
+    <br>
+    <br>
+    <u>➔History:-</u>
+    The history of the BMW Group reaches back to 1916. Today, the four brands BMW, MINI, Rolls-Royce, and BMW Motorrad make the BMW Group one of the world’s leading premium suppliers of automobiles, motorcycles, as well as mobility services. Since the beginning of its history, the company has kept its sight firmly set on the future and has consequently put sustainability and efficient resource management into the centre of its strategy. Learn more about the history and historical focus of the BMW Group.  
+
+   <br/>
+   <u>   ➔Emissions standards:-
+
+   </u>
+   <br/>
+   <br/>
+
+   Tailpipe emissions standards for motorcycles continue to be strengthened. In 1980 the U.S Environmental Protection Agency (EPA) first regulated new motorcycle hydrocarbon emissions, requiring motorcycles to emit less than 5.0 grams per km (0.3 ounce per mile) of highway driving. California and the European Union (EU) imposed stricter limits on hydrocarbons and added restrictions on nitric oxides and carbon monoxide. In 2006 emissions from new motorcycles sold in the United States were limited to a combined 1.4 grams of hydrocarbons and nitric oxides and 12.0 grams of carbon monoxide per km. The EPA decreased the limit on combined emissions of hydrocarbons and nitric oxides to 0.8 gram in 2010. The EU reduced emissions from new motorcycles in 2004 to 1.0 gram of hydrocarbons, 0.3 gram of nitric oxides, and 5.5 grams of carbon monoxide per km; in 2007 these levels were further reduced to 0.3 gram of hydrocarbons, 0.15 gram of nitric oxides, and 2.0 grams of carbon monoxide per km. The EU did a further emission reduction in 2016 to 0.17 gram of hydrocarbons, 0.09 gram of nitric oxides, and 1.14 grams of carbon monoxide, with a further reduction to 0.1 gram of hydrocarbons, 0.06 gram of nitric oxides, and 1 gram of carbon monoxide planned for 2020. Although U.S. limits for carbon monoxide were not lowered by law, the required reductions in other pollutants effectively lowered carbon monoxide emissions in fact. In order to meet these “clean-air regulations,” manufacturers installed more sophisticated catalytic converters and fuel-injection systems.
+<br/>
+<br/>
+<u>➔Evaluation of BMW:-</u>
+<br/>
+1.1917 – The BMW Emblem.<br/>
+2.1922 – Company relocation and new beginning.<br/>
+3.1923 – BMW R 32 – the first BMW Motorrad.<br/>
+4.1928 – BMW begins automotive construction.<br/>
+5.1933 – Armaments policy and forced labour.<br/>
+6.1934 – Aircraft engine manufacture becomes autonomous.<br/>
+7.1936 – Establishment of the “shadow plant” Allach.<br/>
+8.1939 – BMW takes over Brandenburgischen Motorenwerke.<br/>
+
+<u>
+    <h2>➔Services:-</h2>
+  </u>
+  With Service Inclusive, you have complete peace of mind for a period of your choice. During this time, you don’t have to waste a moment thinking about the cost of maintenance or wear and tear. A single attractive upfront payment covers an extensive range of services performed by BMW Service (Original BMW Parts included).
+ <br/>
+ <br>
+  <img src="C:\Users\Lenovo\Downloads\svm.jpg" width="1550px" height="600px"style="mergin-right: 0px;">
+   <br>
+
+  Fully Flexible.
+
+You have a choice of various packages with different duration and mileage:
+
+Service Inclusive – You can choose from 3 years with 40,000 Km to 10 years with 2,00,000 Km.
+
+
+
+Easily Transferable:-
+
+
+Consistent maintenance by trained BMW Service staff and the use of Original BMW Parts secure the value of your car in the long run. In case you sell your car, Service Inclusive is automatically transferred to the next owner – an additional selling point.
+
+
+Vast Presence.
+
+Service Inclusive is valid worldwide at participating BMW Service Centres.
+
+
+For further details, ask your service advisor at our BMW Service Centre.
+
+*Refer to Terms and Conditions.
+
+
+#Applicable only with BMW India Financial Services Private Limited during the initial purchase of the vehicle (not on other finance or during upgrades).
+
+<h1>
+<u>
+  ➔TYPE OF PACKAGE:-
+</u>
+</h1>
+<br/>
+New Car Package
+NEW CAR PACKAGE:
+Attractive option to avail more benefits along with the cars. New Car Package is best suitable within a year, having extension possibility up to 10 years. Package starts with warranty start date and terminates either when mileage or time threshold is reached, whichever occurs first.
+
+
+
+¹Maximum tenure possible.
+Service Inclusive packages can be purchased at any time. There are no prerequisites for ordering.
+<h1>
+<u>
+Business Package:-
+</u>
+</h1>
+
+Specially tailored plan for our business partners and fleet customers with high usage. Attractive option to avail more benefits. New Car Package best suitable within a year, having extension possibility up to 4 years. Package starts with warranty start date and terminates either when mileage or time threshold is reached, whichever occurs first.
+
+
+
+¹Maximum tenure possible.
+Business Customer packages with contents and order logic similar to those of the New Car program are available. The mileage is limited to max. 200,000 km
+
+<h1>
+  <u>➔SCOPE OF SERVICE:-
+  </u>
+  </h1>
+ <u>Our most important tool: The experience of our employees:-</u>
+Thanks to their intensive and advanced training, our employees have professional expertise – in classical mechanics and in dealing with electronic diagnostics technology. They are highly trained pros who know your BMW like the back of their hands. Their expertise, riding experience and passion make the decisive difference at the Original BMW Motorrad Service.
+<br/>
+<br/>
+
+  <img src="C:\Users\Lenovo\Downloads\cr2.gif" width="1100px" height="300px"style="mergin-right: 2px;">
+  <br/>
+  <br/>
+  
+Menu
+
+
+en_IN
+Service at BMW Motorrad.
+SERVICE AT BMW MOTORRAD.
+PERFECTION DOWN TO THE LAST DETAIL.
+BMW Motorrad Service stands for quality and precision right down to the last detail. This might be a vehicle check, maintenance or repair – with our service offers, you can trust in the experience of our mechanics and the first-class quality of the Original BMW Motorrad Parts. We always ensure that everything is perfect with your motorcycle, so that the value and performance of your BMW remains intact for many years and your riding enjoyment is guaranteed to last for many years to come.
+
+
+Service Experience
+Our most important tool: The experience of our employees.
+Thanks to their intensive and advanced training, our employees have professional expertise – in classical mechanics and in dealing with electronic diagnostics technology. They are highly trained pros who know your BMW like the back of their hands. Their expertise, riding experience and passion make the decisive difference at the Original BMW Motorrad Service.
+Winter storage
+Winter storage
+Learn more
+Tyre service
+Tyre service
+Learn more
+The BMW Motorrad oil inclusive service.
+The BMW Motorrad oil inclusive service.
+The most important part of your bike is the engine. With the Oil Service, your machine gets what it deserves: the very best. The one-time fixed fee doesn’t include ordinary oil changes – because ADVANTEC Original BMW Engine Oil is far from ordinary. It was developed exclusively for the high-performance BMW Motorrad engine. So you can just ride.*
+
+
+     
+  <h1>
+    <u>➔Chart Revenue :-
+    </u>
+    </h1>
+       <img src="C:\Users\Lenovo\Downloads\17.png" width="1100px" height="390px"style="mergin-right: 2px;">
+       <br/>
+       1.Every 10,000 miles, or yearly: replace engine oil, oil filter, and coolant<br/>
+       2.Every 20,000 miles, or every two years: inspect and replace fuel filters <br/>
+       3.Every 30,000 miles, or every three years: <br/>
+       4.Replace brake fluid (after the first replacement, every 60,000 miles) <br/>
+       5.Replace transmission fluid on manual-transmission BMWs <br/>
+       6.Every 60,000 miles, or every six years: <br/>
+       7.Replace engine air filter and spark plugs <br/>
+       8.Inspect and replace brake pads and brake rotors, as necessary <br/>
+       9.Replace transmission fluid on automatic-transmission BMWs <br/>
+      10. Every 90,000 miles, or every nine years: replace timing belts and hoses <br/>
+      <br/>
+
+
+           
+  <h1>
+    <u>➔Terms & Conditions :-
+    </u>
+    </h1>
+    We design technology for the requirements of tomorrow. Whether tool and model making, lightweight construction, engineering, and series production - worldwide we work with and for the global players in the automotive industry and make progress with our innovative, sustainable concepts, even across industries. We are problem solvers and idea generators, but we also like to think outside the box. With passion and highly motivated for your success. We rely on synergies with our subsidiary C-CON and our strong partner Ayala Corporation Industrials (ACI).
+
+<br/>
+
+<video controls width="1500px" height="400px">
+  <source autoplay loop muted src="C:\Users\Lenovo\Downloads\pf0007818_264.mp4" type="video/mp4">
+</main>
+<br> 
+<br>
+
+<div class="terms">
+  <footer>
+    
+                                         <p>&copy; 2024 BMW. All rights reserved.
+                                          <br/>New Cars -<br>
+                                          
+
+                                             CarFind -<br>
+                                             Perfect -<br>
+                                              Perfect -Eleven -<br>
+                                             BikeCar - Deale -<br>
+
+                                             <br>
+                                             TERMS & CONDITIONS:
+                                             BMW India Private Limited, a company registered under the provisions of the Companies Act, 1956, having its registered office at 2nd Floor, Oberoi Centre, Building No.11, DLF Cyber City, Phase-II, Gurugram, Haryana – 122002(hereinafter referred to as "BMW") provides the customer with vehicle related information, auxiliary services according to these terms and conditions (hereinafter alto­gether referred to as “Services”) under the name “BMW ConnectedDrive” in accordance with these General Terms and Conditions of Business and Use. The “Dealer” means an Authorized Dealer of BMW India Private Limited being authorized for selling vehicles to the customers.
+ 
+
+The current version of these Terms and Condition can be viewed, saved and printed at any time on www.bmw.in. Any amendments to these Terms and Conditions of Business and Use shall be published at least 15 days before their intended date of entry into force at available website.
+
+ 
+
+The customer understands and accepts that vehicle having “BMW Connected Drive” feature shall be provided in pre-activation mode and no approval required for activation of Services in the vehicle. The Services will be provided based on these Terms and Conditions.
+
+
+
+   
+
+        </p>
+
+    </div>
+    
+</footer>
+   
+      
+      </div>
